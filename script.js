@@ -10,11 +10,13 @@ var gamePlaying = false;
 var tonePlaying = false;
 var volume = 0.5;
 var guessCounter = 0;
+var timer;
 
 // Functions for game
 function startGame() {
   // initialize game variables
   progress = 0;
+  clueHoldTime = 1000;
   gamePlaying = true;
   // Create new pattern for new game
   for(let i = 0; i < 8; i++) {
@@ -22,6 +24,12 @@ function startGame() {
   }
   document.getElementById("startBtn").classList.add("hidden");
   document.getElementById("stopBtn").classList.remove("hidden");
+  document.getElementById("timer").classList.remove("hidden");
+  // Check if there is a timer to be cleared
+  if(timer !== undefined) {
+    clearInterval(timer);
+    document.getElementById("timer").innerHTML = "Timer: 10s"
+  }
   playClueSequence();
 }
 
@@ -31,6 +39,9 @@ function stopGame() {
   pattern = [];
   document.getElementById("startBtn").classList.remove("hidden");
   document.getElementById("stopBtn").classList.add("hidden");
+  document.getElementById("timer").classList.add("hidden");
+  // Clear the timer
+  clearInterval(timer);
 }
 
 function playClueSequence() {
@@ -40,9 +51,12 @@ function playClueSequence() {
     console.log("play single clue: " + pattern[i] + " in " + delay + "ms")
     setTimeout(playSingleClue,delay,pattern[i]); // set a timeout to play that clue
     delay += clueHoldTime;
-    clueHoldTime -= 20;
     delay += cluePauseTime;
   }
+  clueHoldTime -= 50;
+  console.log(clueHoldTime);
+  setTimeout(function() {
+    timer = setTimer() }, delay);
 }
 
 function loseGame() {
@@ -123,6 +137,9 @@ function guess(btn) {
       } else {
         // Pattern correct. Add next segment
         progress++;
+        // Reset the timer
+        clearInterval(timer);
+        document.getElementById("timer").innerHTML = "Timer: 10s"
         playClueSequence();
       }
     } else {
@@ -135,3 +152,21 @@ function guess(btn) {
     loseGame();
   }
 }
+
+// Timer function
+function setTimer() {
+  let time = 10;
+  document.getElementById("timer").innerHTML = "Timer: 10s"
+  var setTime = setInterval(function() {
+    time--;
+    document.getElementById("timer").innerHTML = "Timer: " + time + "s";
+    // Timer runs out
+    if(time === 0 && gamePlaying) {
+      document.getElementById("timer").innerHTML = "Timer: 0s";
+      loseGame();
+      clearInterval(setTime);
+    } 
+  }, 1000);
+  return setTime;
+}
+
