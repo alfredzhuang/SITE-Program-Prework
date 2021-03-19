@@ -4,7 +4,7 @@ const nextClueWaitTime = 1000; // how long to wait before starting playback of t
 
 // Global variables
 var clueHoldTime = 1000; // how long to hold each clue's light/sound
-var pattern = [2, 2, 4, 3, 2, 1, 2, 4];
+var pattern = [];
 var progress = 0;
 var gamePlaying = false;
 var tonePlaying = false;
@@ -16,6 +16,10 @@ function startGame() {
   // initialize game variables
   progress = 0;
   gamePlaying = true;
+  // Create new pattern for new game
+  for(let i = 0; i < 8; i++) {
+    pattern.push(Math.floor(Math.random()*4)+1);
+  }
   document.getElementById("startBtn").classList.add("hidden");
   document.getElementById("stopBtn").classList.remove("hidden");
   playClueSequence();
@@ -23,6 +27,8 @@ function startGame() {
 
 function stopGame() {
   gamePlaying = false;
+  // Clear pattern for next game
+  pattern = [];
   document.getElementById("startBtn").classList.remove("hidden");
   document.getElementById("stopBtn").classList.add("hidden");
 }
