@@ -1,9 +1,9 @@
 // Global constants
-const clueHoldTime = 1000; // how long to hold yeach clue's light/sound
 const cluePauseTime = 333; // how long to pause in between clues
 const nextClueWaitTime = 1000; // how long to wait before starting playback of the clue sequence
 
 // Global variables
+var clueHoldTime = 1000; // how long to hold each clue's light/sound
 var pattern = [2, 2, 4, 3, 2, 1, 2, 4];
 var progress = 0;
 var gamePlaying = false;
@@ -34,6 +34,7 @@ function playClueSequence() {
     console.log("play single clue: " + pattern[i] + " in " + delay + "ms")
     setTimeout(playSingleClue,delay,pattern[i]); // set a timeout to play that clue
     delay += clueHoldTime;
+    clueHoldTime -= 20;
     delay += cluePauseTime;
   }
 }
