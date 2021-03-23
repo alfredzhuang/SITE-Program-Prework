@@ -11,11 +11,13 @@ var tonePlaying = false;
 var volume = 0.5;
 var guessCounter = 0;
 var timer;
+var chances = 3;
 
 // Functions for game
 function startGame() {
   // initialize game variables
   progress = 0;
+  chances = 3;
   clueHoldTime = 1000;
   gamePlaying = true;
   // Create new pattern for new game
@@ -24,7 +26,10 @@ function startGame() {
   }
   document.getElementById("startBtn").classList.add("hidden");
   document.getElementById("stopBtn").classList.remove("hidden");
+  document.getElementById("level").classList.remove("hidden");
   document.getElementById("timer").classList.remove("hidden");
+  // Change the level
+  document.getElementById("level").innerHTML = "Level: 1";
   // Check if there is a timer to be cleared
   if (timer !== undefined) {
     clearInterval(timer);
@@ -39,6 +44,7 @@ function stopGame() {
   pattern = [];
   document.getElementById("startBtn").classList.remove("hidden");
   document.getElementById("stopBtn").classList.add("hidden");
+  document.getElementById("level").classList.add("hidden");
   document.getElementById("timer").classList.add("hidden");
   // Clear the timer
   clearInterval(timer);
@@ -140,8 +146,9 @@ function guess(btn) {
         // Game Over : Win!
         winGame();
       } else {
-        // Pattern correct. Add next segment
+        // Pattern correct. Add next segment and change the level
         progress++;
+        document.getElementById("level").innerHTML = "Level: " + (progress + 1);
         // Reset the timer
         clearInterval(timer);
         document.getElementById("timer").innerHTML = "Timer: 15s";
@@ -152,9 +159,12 @@ function guess(btn) {
       guessCounter++;
     }
   } else {
-    // Guess was incorrect
-    // Game Over: Lose!
-    loseGame();
+    // Guess was incorrect, check if user has any chances left
+    chances--;
+    // No chances left, Game Over: Lose!
+    if(chances === 0) {
+      loseGame();
+    }
   }
 }
 
