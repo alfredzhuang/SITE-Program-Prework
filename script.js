@@ -5,13 +5,13 @@ const nextClueWaitTime = 1000; // how long to wait before starting playback of t
 // Global variables
 var clueHoldTime = 1000; // how long to hold each clue's light/sound
 var pattern = [];
-var progress = 0;
-var gamePlaying = false;
+var progress = 0; // the level of the game
+var gamePlaying = false; 
 var tonePlaying = false;
 var volume = 0.5;
-var guessCounter = 0;
+var guessCounter = 0; 
 var timer;
-var chances = 3;
+var chances = 3; // mistakes the player can make
 
 // Functions for game
 function startGame() {
