@@ -41,7 +41,7 @@ The following **additional** features are implemented:
 ## Video Walkthrough
 
 Here's a walkthrough of the memory game:
-![](https://recordit.co/hRPhPO54e7)
+![](http://g.recordit.co/hRPhPO54e7.gif)
 Created using <a href="https://recordit.co/">Recordit</a>
 
 ## Reflection Questions
