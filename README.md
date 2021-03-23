@@ -4,7 +4,7 @@
 
 Submitted by: **Alfred Zhuang**
 
-Time spent: **3** hours spent in total
+Time spent: **4** hours spent in total
 
 Link to project: https://glitch.com/edit/#!/odd-shrouded-butter
 
@@ -23,25 +23,25 @@ The following **required** functionality is complete:
 The following **optional** features are implemented:
 
 - [ ] Any HTML page elements (including game buttons) has been styled differently than in the tutorial
-- [ ] Buttons use a pitch (frequency) other than the ones in the tutorial
-- [ ] More than 4 functional game buttons
+- [x] Buttons use a pitch (frequency) other than the ones in the tutorial
+- [x] More than 4 functional game buttons
 - [x] Playback speeds up on each turn
 - [x] Computer picks a different pattern each time the game is played
-- [ ] Player only loses after 3 mistakes (instead of on the first mistake)
+- [x] Player only loses after 3 mistakes (instead of on the first mistake)
 - [ ] Game button appearance change goes beyond color (e.g. add an image)
 - [ ] Game button sound is more complex than a single tone (e.g. an audio file, a chord, a sequence of multiple tones)
 - [x] User has a limited amount of time to enter their guess on each turn
 
 The following **additional** features are implemented:
 
-- [ ] Add a score counter
+- [x] Add a level counter
 - [ ] Add high scores
 - [ ] Allow users to choose the specified length of the game
 
 ## Video Walkthrough
 
 Here's a walkthrough of the memory game:
-![](http://g.recordit.co/JDjDpHy0Ln.gif)
+![](https://recordit.co/hRPhPO54e7)
 Created using <a href="https://recordit.co/">Recordit</a>
 
 ## Reflection Questions
@@ -56,7 +56,7 @@ A challenge I encountered in creating the submission was trying to figure out ho
 After completing my submission, I wondered how maybe different frameworks or different libraries could have been used to come up with the same exact game, and how it would have compared to the code I wrote in terms of simplicity or speed. On top of that, because things like the timer were created using the interval commands from Javascript, I wondered if there was a simpler approach to the one that I used and if it would have been quicker in terms of implementation or load times. I also wondered how I could possibly create a multiplayer game out of this, where users could be able to start a match against one another, where each game would start at the same time but the one who makes it to the higher level would win. 
 
 4. If you had a few more hours to work on this project, what would you spend them doing (for example: refactoring certain functions, adding additional features, etc). Be specific. (recommended 100 - 300 words) <br><br>
-If I had a few more hours to work on this project, I would spend them on adding features that would make the user experience more enjoyable. For example, things that I put under additional features like a high score or a tracker for their score would be fun to implement and would help to add a level of fun to the gameplay experience for the player. As for the code itself, I think that to improve it, with the extra time I probably would have spent some of it tidying up the code or refactoring the code, because I think that it is not as neat as it could be.
+If I had a few more hours to work on this project, I would spend them on adding features that would make the user experience more enjoyable. For example, things that I put under additional features like a high score or a multiplayer version of the game would be fun to implement and would help to add a level of fun to the gameplay experience for the player. As for the code itself, I think that to improve it, with the extra time I probably would have spent some of it tidying up the code or refactoring the code, because I think that it is not as neat as it could be.
 
 ## License
 
