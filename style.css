@@ -57,3 +57,35 @@ button {
 #button4:active, #button4.lit  {
   background: yellow;
 }
+
+#button5 {
+  background: orange;
+}
+
+#button5:active, #button5.lit  {
+  background: coral;
+}
+
+#button6 {
+  background: fuchsia;
+}
+
+#button6:active, #button6.lit  {
+  background: darkviolet;
+}
+
+#button7 {
+  background: turquoise;
+}
+
+#button7:active, #button7.lit  {
+  background: teal;
+}
+
+#button8 {
+  background: gray;
+}
+
+#button8:active, #button8.lit  {
+  background: darkslategray;
+}
